@@ -1,9 +1,9 @@
 #Lemonade Stand Shop
-cash = 30.0
-cups = 0 
-lemons = 0 
-sugar = 0 
-ice = 0 
+cashOnHand = 30.0
+cupsOnHand = 0 
+lemonsOnHand = 0 
+sugarOnHand = 0 
+iceOnHand = 0 
 
 itemsPrices = {
     "25 cups": 0.85,
@@ -55,27 +55,27 @@ while Shop:
     print("Item Name: {0} Cost: {1}".format(item, itemsPrices[item]))
   requested_item = input("I would like ")
   if requested_item in itemsPrices:
-    cash = cash - (itemsPrices[requested_item])
+    cashOnHand = cashOnHand - (itemsPrices[requested_item])
     
   if requested_item in inventoryCups:
-    cups = cups + (inventoryCups[requested_item])
+    cupsOnHand = cupsOnHand + (inventoryCups[requested_item])
     
   elif requested_item in inventoryIce:
-      ice = ice + (inventoryIce[requested_item])
+    iceOnHand = iceOnHand + (inventoryIce[requested_item])
       
   elif requested_item in inventoryLemons:
-      lemons = lemons + (inventoryLemons[requested_item])
+    lemonsOnHand = lemonsOnHand + (inventoryLemons[requested_item])
       
   elif requested_item in inventorySugar:
-      sugar = sugar + (inventorySugar[requested_item])
+      sugarOnHand = sugarOnHand + (inventorySugar[requested_item])
       
     
-  print("\n This is your remaining dollar ammount $ {0}".format(cash))
+  print("\n This is your remaining dollar ammount $ {0}".format(cashOnHand))
   print("\n these are your remaining ingredients:")
-  print("cups {0}".format(cups)) 
-  print ("lemons {0}".format(lemons))
-  print ("sugar {0}".format(sugar))
-  print ("ice {0}".format(ice))
+  print("cups {0}".format(cupsOnHand)) 
+  print ("lemons {0}".format(lemonsOnHand))
+  print ("sugar {0}".format(sugarOnHand))
+  print ("ice {0}".format(iceOnHand))
   print(" \n would you like to continue shopping? y for yes, n for no")
   contShop = input()
 else:
