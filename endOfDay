@@ -1,0 +1,87 @@
+#Lemonade Stand Random Events
+import random
+
+cashOnHand = 0
+sugarOnHand = 0
+lemonsOnHand = 0
+cupsOnHand = 0
+iceOnHand = 0
+currentDay = 0
+finalDay = 30
+
+#Determines if there will be a random event at the end of the day. If so, determines the eventType and executes the event.
+#Dependancies: cashOnHand, sugarOnHand, lemonsOnHand, cupsOnHand, currentDay, finalDay
+#Generates: bonusTip
+#Concerns:  Uses a ton of global variables
+def randomEvents():
+  
+  eventType = random.randint(0, 99)
+  bonusTip = 20
+  global cashOnHand
+  global sugarOnHand
+  global lemonsOnHand
+  global cupsOnHand
+  global currentDay
+  global finalDay
+  
+  if eventType < 25:
+    print("As you pack up your goods a creeping sense of dread runs through your spine. You cannot help but shake the feeling that you're on a collision course with tragedy. However, your concerns end up as unfounded as you return home without incident./n/n")
+  elif eventType > 24 and eventType < 40:
+    print("As you pack up your goods a creeping sense of dread runs through your spine. You cannot help but shake the feeling that you're on a collision course with tragedy. Fortunately, you make it home safely. Unfortunately, you realize that you also forgot to pack some of your lemons. You've lost half of your lemon stock!/n/n")
+    lemonsOnHand = lemonsOnHand / 2
+  elif eventType > 39 and eventType < 45:
+    print("As you pack up your goods a creeping sense of dread runs through your spine. You cannot help but shake the feeling that you're on a collision course with tragedy. Fortunately, you make it home safely. Unfortunately, it seems the a horrible case of the Lemon Rot has take hold in your lemons, and you must purge your whole stock or risk letting the catastrophic disease spread further. As you watch all of your hard-earned lemons burn in an admittedly impressive bonfire, you can't help but wonder if this is what watching money burn feels like. You lose all your lemon stock!/n/n")
+    lemonsOnHand = 0
+  elif eventType > 44 and eventType < 60:
+    print("As you pack up your goods a creeping sense of dread runs through your spine. You cannot help but shake the feeling that you're on a collision course with tragedy. Fortunately, you make it home safely. Unfortunately, you realize that you crushed a number of your cups in your haste to return home, and crushed cups make poor recepticles for liquid. You lose half of your cup stock!/n/n")
+    cupsOnHand = cupsOnHand / 2
+  elif eventType > 59 and eventType < 65:
+    print("As you pack up your goods a creeping sense of dread runs through your spine. You cannot help but shake the feeling that you're on a collision course with tragedy. Fortunately, you make it home safely. Unfortunately, along the way you also ran into the notorious Party Cup Highwayman, that demands that you either forfeit all of your party cups or your life. Like any sensical person, you hand over all the rest of your beloved party cups, and your dreams of building a lemonade empire with them. You lose all of your cup stock!/n/n")
+    cupsOnHand = 0
+  elif eventType > 64 and eventType < 80:
+    print("As you pack up your goods a creeping sense of dread runs through your spine. You cannot help but shake the feeling that you're on a collision course with tragedy. Fortunately, you make it home safely. Unfortunately, you are assaulted by your dog the moment you breach the threshold of your home. Even more unfortunately, you drop your sugar bin in the sudden onslaught, and your dog has quite a sweet tooth. By the time you manage to recover your sugar, he's already eaten a considerable amount of it. Suddenly, your mother's recommendation that it may perhaps be time to take old Buddy to the farm dosn't seem as outlandish. You lose half of your sugar stock!/n/n")
+    sugarOnHand = sugarOnHand / 2
+  elif eventType > 79 and eventType < 85:
+    print("As you pack up your goods a creeping sense of dread runs through your spine. You cannot help but shake the feeling that you're on a collision course with tragedy. Fortunately, you make it home safely. Unfortunately, along the way you encounter a band of the radical fringe political action cult 'Mothers Against Sweets, Games, and All Fun in Life'. As you appear to be one who enjoys all three of those things, they do their best to 'convert' you to their line of thinking. Unfortunately for them, you have also trained in the art of Wuxia from a young age. They put up a good fight with their electric scooters and slogan-emblazoned signs, but they stand little chance before your mystical powers. As you fight off the last of the cultists you realize that all of your aerial acrobatics loosened up your sugar stash, and it's spilled all across the street. You lose all of your sugar stock, but gain a thousand coolness points!/n/n")
+    sugarOnHand = 0
+  elif eventType > 84 and eventType < 95:
+    print("As you pack up your goods a creeping sense of dread runs through your spine. You cannot help but shake the feeling that you're on a collision course with tragedy. Fortunately, you make it home safely. Furthermore your sense of dread proved to be completely unfounded,as you quickly realize that kind customer left you a generous tip, to the tune of a whooping $20! You gain $20! That's a lot of lemons!")
+    sugarOnHand = sugarOnHand + bonusTip
+  elif eventType == 95:
+    print("As you pack up your goods a creeping sense of dread runs through your spine. You cannot help but shake the feeling that you're on a collision course with tragedy. You are relieved, then, when you find out that the exact opposite is the case. As you pack up your lemons, you notice for the first time that the tree you built your shop beneath is, in fact, a lemon tree. While you were busy making lemonade throughout the day, lemons had been falling from the tree into your stores until you unkonwingly accumulated a veritable horde of lemons! What luck!")
+    lemonsOnHand = lemonsOnHand * 2
+  elif eventType == 96:	 
+    print("As you pack up your goods a creeping sense of dread runs through your spine. You cannot help but shake the feeling that you're on a collision course with tragedy. You are relieved, then, when you find that a helpful family of garden gnomes decided to make it their daily mission to help you succeed in the lemonade business. Over the course of the day they've taken what suger they could find and added it to your stores! What luck!")
+    sugarOnHand = sugarOnHand * 2
+  elif eventType == 97:
+    print("As you pack up your goods a creeping sense of dread runs through your spine. You cannot help but shake the feeling that you're on a collision course with tragedy. You are relieved, then, when you find that the opposite is true. Instead you find that the notorious Party Cup Highwayman, who steals from the rich to give to the poor, has decided to grace you with a part of his cup stores. You now have so many cups that you can't imagine running out! What luck! Pray you stay on his good side!")
+    cupsOnHand = 20000
+  elif eventType == 98:
+    print("As you pack up your goods a creeping sense of dread runs through your spine. You cannot help but shake the feeling that you're on a collision course with tragedy. You are relieved, then, when you discover that the strange old man who has been watching you for some time is not an emissary of tragedy, but rather of fortune. He's grown to admire your little lemonade stand and believes that it has a real future in the business. As such, he offers to acquire the booth from you, provided you leave the lemonade business for the rest of your earthly days. You immediately accept his offer, as your bid for global lemonade domination hasn't really been shaping out as you planned. In return he gives you $2000 and a kind smile. You game is now over, but you're all the better off for it!")
+    cashOnHand = cashOnHand * 2000
+    currentDay = finalDay
+  elif eventType == 99:
+    print("As you pack up your goods a creeping sense of dread runs through your spine. You cannot help but shake the feeling that you're on a collision course with tragedy. Your instinct proves to be catastrophically correct, as a group of seemingly disinterested young men from across the street approach you as you're just finishing putting your goods away, and identifies themselves as the Lemon Brothers -- a group of neer-de-wells who rule the local lemonade market with an iron fist. The way they see it, you've set up your stand on their turf, and they intend to make you pay. Before you can make a break for it, the bigger brothers have already accosted you and you're forced to watch as the younger brother lights your goods on fire. Yoour desperate screams fall only on deaf ears, as none of the passerbys would dare to mess with the notorious gang. Your lemonade empire's gruesome finale drags ever onward, as the mean-spirited boys subject you to unspeakable verbal abuse while the last of your stores go up in smoke. The entire ordeal causes you to forswear all of your citrus-related dreams. Your store has now closed and your game has come to an end, and you haven't a penny to show for it!")
+    cashOnHand = 0
+    currentDay = finalDay
+
+#Melts all the ice at the end of the day.
+def icepocalypse():
+  return 0
+  
+#Determines how the day's performance will affect the popularity of the stand
+def generatePopularity(num, string):
+  return 0
+  
+#Executes all of the of the endOfDay functions. For use in the main code.
+#num = the day's temperature
+#string = the day's weather type
+def endOfDay(num, string):
+  
+  weather = string
+  temperature = num
+  global iceOnHand
+  
+  randomEvents()
+  iceOnHand = icepocalypse()
+  generatePopularity(temperature, weather)
